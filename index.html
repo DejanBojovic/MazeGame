@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MazeGame</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- popup menu that is displayed after you win or lose -->
+    <section class="result">
+        <div class="result-menu">
+            <!-- displays if you won or lost -->
+            <p></p>
+            <!-- button that resets the game -->
+            <div class="result-button"></div>
+        </div>
+    </section>
+
+    <!-- menu on the right where you decide about diffuclty and the background color, and you read info -->
+    <section class="setup">
+        <!-- info -->
+        <div class="set info">
+            <div class="square"></div>
+            <p>Info</p>
+            <div class="info-text">
+                <p class="remove">Welcome to this humble maze game. Its mechanism relies on drag and drop functionality. There is one player and one target. But pay attention! You can hit walls and lose.
+                </p>
+                <p>
+                Useful tip: When dragging the pin you're playing with(top right corner) press and hold the middle of the white circle.<br><br>
+                Easy mode: you have as much time as you need!<br>
+                Medium mode: you have ten seconds to finish! <br>
+                Hard mode: you have five seconds to finish and the walls are moving!
+                <br><br>
+                Good luck stranger!
+                </p>
+            </div>
+        </div>
+        <!-- difficulty -->
+        <div class="set difficulty">
+            <div class="square"></div>
+            <p>Difficulty</p>
+            <ul class="difficulty-types">
+                <li class="easy">Easy</li>
+                <li class="medium">Medium</li>
+                <li class="hard">Hard</li>
+            </ul>
+        </div>
+        <!-- background -->
+        <div class="set background">
+            <div class="square"></div>
+            <p>Color</p>
+            <div class="background-color">
+                <div class="bg bg-blue"></div>
+                <div class="bg bg-red"></div>
+                <div class="bg bg-purple"></div>
+            </div>
+        </div>
+    </section>
+    <!-- maze -->
+    <main class="main">
+        <!-- player - black circle with white one insdide it -->
+        <div class="player" draggable="true">
+            <div class="drag"></div>
+        </div>
+        <!-- rows - for better organizing the maze in case of change -->
+        <section class="row-one">
+            <div class="row row-one-1"></div>
+            <div class="row row-one-2"></div>
+            <div class="row row-one-3"></div>
+        </section>
+        <section class="row-two">
+            <div class="row row-two-1"></div>
+            <div class="row row-two-2"></div>
+            <div class="row row-two-3"></div>
+            <div class="row row-two-4"></div>
+            <div class="row row-two-5"></div>
+            <div class="row row-two-6"></div>
+            <div class="row row-two-7"></div>
+        </section>
+        <section class="row-three">
+            <div class="row row-three-1"></div>
+            <div class="row row-three-2"></div>
+            <div class="row row-three-3"></div>
+            <div class="row row-three-4"></div>
+        </section>
+        <section class="row-four">
+            <div class="row row-four-1"></div>
+            <div class="row row-four-2"></div>
+            <div class="row row-four-3"></div>
+            <div class="row row-four-4"></div>
+            <div class="row row-four-5"></div>
+        </section>
+        <section class="row-five">
+            <div class="row row-five-1"></div>
+            <div class="row row-five-2"></div>
+            <div class="row row-five-3"></div>
+            <div class="row row-five-4"></div>
+            <div class="row row-five-5"></div>
+            <div class="row row-five-6"></div>
+            <div class="row row-five-7"></div>
+        </section>
+        <section class="row-six">
+            <div class="row row-six-1"></div>
+            <div class="row row-six-2"></div>
+            <div class="row row-six-3"></div>
+            <div class="row row-six-4"></div>
+            <div class="row row-six-5"></div>
+        </section>
+        <section class="row-seven">
+            <div class="row row-seven-1"></div>
+            <div class="row row-seven-2"></div>
+            <div class="row row-seven-3"></div>
+            <div class="row row-seven-4"></div>
+            <div class="row row-seven-5"></div>
+            <div class="row row-seven-6"></div>
+            <div class="row row-seven-7"></div>
+            <div class="row row-seven-8"></div>
+            <div class="row row-seven-9"></div>
+        </section>
+        <section class="row-eight">
+            <div class="row row-eight-1"></div>
+            <div class="row row-eight-2"></div>
+            <div class="row row-eight-3"></div>
+            <div class="row row-eight-4"></div>
+            <div class="row row-eight-5"></div>
+            <div class="row row-eight-6"></div>
+            <div class="row row-eight-7"></div>
+            <div class="row row-eight-8"></div>
+        </section>
+        <section class="row-nine">
+            <div class="row row-nine-1"></div>
+            <div class="row row-nine-2"></div>
+            <div class="row row-nine-3"></div>
+            <div class="row row-nine-4"></div>
+            <div class="row row-nine-5"></div>
+            <div class="row row-nine-6"></div>
+            <div class="row row-nine-7"></div>
+            <div class="row row-nine-8"></div>
+            <div class="row row-nine-9"></div>
+        </section>
+        <section class="row-ten">
+            <div class="row row-ten-1"></div>
+            <div class="row row-ten-2"></div>
+            <div class="row row-ten-3"></div>
+            <div class="row row-ten-4"></div>
+            <div class="row row-ten-5"></div>
+        </section>
+        <!-- borders of the maze - 4 divs set on top of the main, their bg is not set, and they have class that checks for hits -->
+        <section class="main-border">
+            <div class="border border-left"></div>
+            <div class="border border-top"></div>
+            <div class="border border-right"></div>
+            <div class="border border-bottom"></div>
+        </section>
+        <!-- target of the game that player needs to reach -->
+        <div class="target"></div>
+    </main>
+    <!-- timer for round -->
+    <div class="timer">
+        10
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
