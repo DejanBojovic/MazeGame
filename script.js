@@ -17,7 +17,6 @@ function dragStart() {
         player.classList.add("invisible");
     }, 0)
 
-    // displays time remaining
     // gets the number from the DOM
     var time = timer.innerHTML;
     
@@ -31,9 +30,10 @@ function dragStart() {
 
         if (timer.classList[1] === "lose") {
             // when class "lose" is appended to timer in "dragEnterWall" function it means that player hit the wall and lost soo the game ends
-            // interval is being reset and timer is being set to ten for the next round to start
+            // interval is being reset and timer is being set for the next round to start
             clearInterval(interval);
 
+            // sets time again
             if(body.classList.value === "hard") {
                 timer.innerHTML = 5;
             } else if(body.classList.value === "medium") {
@@ -47,9 +47,10 @@ function dragStart() {
         // class "win" is being appended to timer in "dragEnter" function if player gets to target
         // then on next iteration of setInterval its being checked here, same as for "lose" above 
         } else if (target.classList[1] === "win") {
-            // then interval is being reset and timer set to ten again
+            // then interval is being reset and timer set again
             clearInterval(interval);
 
+            // sets time again
             if(body.classList.value === "hard") {
                 timer.innerHTML = 5;
             } else if(body.classList.value === "medium") {
@@ -61,7 +62,7 @@ function dragStart() {
         }
 
 
-        // time is seto to -1 in order to not glitch when the player reaches target at 1s left
+        // time is seto to -1 in order to not glitch when the player reaches target at 0 left
         // timer never shows -1 on the page, since it displays 10 when time gets to -1
         // 0 is the last second for the player to win and last number shown on the page
         if (time === -1) {
@@ -73,8 +74,6 @@ function dragStart() {
             } else if(body.classList.value === "medium") {
                 timer.innerHTML = 10;
             }
-            
-            // timer.innerHTML = 10;
 
             // removing target before you clcik on "loser"
             target.style.display = "none";
@@ -141,7 +140,6 @@ function dragEnter(e) {
     // player div is being appended to the target div
     target.append(player);
     // class "win" is being added to target soo the interval in the "dragStart" function can stop
-    // player has won the game before the timer has counted to zero
     target.classList.add("win");
    
     // popup menu is being displayed
@@ -238,7 +236,7 @@ for(var i = 0; i < borders.length; i++) {
 }
 
 // menu on the left
-// setting event listeners to difficulties
+// setting event listeners for difficulties
 var easy = document.querySelector(".easy");
 var medium = document.querySelector(".medium");
 var hard = document.querySelector(".hard");
@@ -302,7 +300,7 @@ hard.addEventListener("click", function() {
     // timer is displayed on the page
     timer.style.display = "block";
     timer.innerHTML = 5;
-    timer.style.color = "#fff";
+    timer.style.color = "#000";
 
     // vertical animation
     rowFourThree.classList.add("slide-vertical");

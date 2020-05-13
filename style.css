@@ -634,7 +634,7 @@ body {
     display: none;
 }
 
-/* ending popup div */
+/* ending popup menu */
 .result {
     height: 180px;
     width: 300px;
@@ -740,9 +740,7 @@ body {
     }
 }
 
-
 /* media queries */
-
 @media only screen and (max-width: 1600px) {
     body {
         overflow: hidden;
