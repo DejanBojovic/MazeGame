@@ -183,6 +183,18 @@ function dragEnterWall(e) {
     // then class "lose" is added to timer soo it can end the interval loop
     timer.classList.add("lose");
 
+    // removing event listeners for walls and borders soo player cant lose twice in a very short time if he hits the walls fast
+    for(var i = 0; i < walls.length; i++) {
+        walls[i].removeEventListener("dragenter", dragEnterWall);
+        walls[i].removeEventListener("dragover", dragOverWall);
+    }
+    
+    // adding functions to the borders of the maze
+    for(var i = 0; i < borders.length; i++) {
+        borders[i].removeEventListener("dragenter", dragEnterWall);
+        borders[i].removeEventListener("dragover", dragOverWall);
+    }
+
     // 
     if(hits === 1) {
         // removing target so player cant cheat
@@ -208,6 +220,18 @@ function dragEnterWall(e) {
             target.style.display = "flex";
             // removing "lose" class soo the round can start again after
             timer.classList.remove("lose");
+
+            // returning event listeners after clicking the button and resetting the round
+            for(var i = 0; i < walls.length; i++) {
+                walls[i].addEventListener("dragenter", dragEnterWall);
+                walls[i].addEventListener("dragover", dragOverWall);
+            }
+            
+            // adding functions to the borders of the maze
+            for(var i = 0; i < borders.length; i++) {
+                borders[i].addEventListener("dragenter", dragEnterWall);
+                borders[i].addEventListener("dragover", dragOverWall);
+            }
         })
 
     }
