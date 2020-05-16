@@ -189,13 +189,12 @@ function dragEnterWall(e) {
         walls[i].removeEventListener("dragover", dragOverWall);
     }
     
-    // adding functions to the borders of the maze
     for(var i = 0; i < borders.length; i++) {
         borders[i].removeEventListener("dragenter", dragEnterWall);
         borders[i].removeEventListener("dragover", dragOverWall);
     }
 
-    // 
+    // reseting the round when the wall si hit
     if(hits === 1) {
         // removing target so player cant cheat
         target.style.display = "none";
@@ -227,7 +226,6 @@ function dragEnterWall(e) {
                 walls[i].addEventListener("dragover", dragOverWall);
             }
             
-            // adding functions to the borders of the maze
             for(var i = 0; i < borders.length; i++) {
                 borders[i].addEventListener("dragenter", dragEnterWall);
                 borders[i].addEventListener("dragover", dragOverWall);
