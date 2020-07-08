@@ -1,14 +1,14 @@
 // dragNdrop for player and target 
-var player = document.querySelector(".player");
-var target = document.querySelector(".target");
-var body = document.querySelector("body");
+const player = document.querySelector(".player");
+const target = document.querySelector(".target");
+const body = document.querySelector("body");
 
 // listeners for player icon
 player.addEventListener('dragstart', dragStart);
 player.addEventListener('dragend', dragEnd);
 
 // timer for medium and hard mode
-var timer = document.querySelector(".timer");
+const timer = document.querySelector(".timer");
 
 // drag functions for player
 function dragStart() {
@@ -18,7 +18,7 @@ function dragStart() {
     }, 0)
 
     // gets the number from the DOM
-    var time = timer.innerHTML;
+    let time = timer.innerHTML;
     
     // function that starts countdown for medium and hard mode
     function count() {
@@ -120,11 +120,11 @@ target.addEventListener("dragover", dragOver);
 target.addEventListener("dragenter", dragEnter);
 
 // popup menu items
-var result = document.querySelector(".result");
-var resultMenu = document.querySelector(".result-menu");
-var pMenu = document.querySelector(".result-menu p");
-var resultButton = document.querySelector(".result-button");
-var main = document.querySelector(".main");
+const result = document.querySelector(".result");
+const resultMenu = document.querySelector(".result-menu");
+const pMenu = document.querySelector(".result-menu p");
+const resultButton = document.querySelector(".result-button");
+const main = document.querySelector(".main");
 
 // drag functions for target
 function dragOver(e) {
@@ -171,7 +171,7 @@ function dragEnter(e) {
 
 // variable that counts how many times player hit the walls before he lost
 // its value is being incremented in dragEnterWall function
-var hits = 0;
+let hits = 0;
 
 // dragNdrop funcionality for the walls
 // checks if the player loses before timer counts down
@@ -184,12 +184,12 @@ function dragEnterWall(e) {
     timer.classList.add("lose");
 
     // removing event listeners for walls and borders soo player cant lose twice in a very short time if he hits the walls fast
-    for(var i = 0; i < walls.length; i++) {
+    for(let i = 0; i < walls.length; i++) {
         walls[i].removeEventListener("dragenter", dragEnterWall);
         walls[i].removeEventListener("dragover", dragOverWall);
     }
     
-    for(var i = 0; i < borders.length; i++) {
+    for(let i = 0; i < borders.length; i++) {
         borders[i].removeEventListener("dragenter", dragEnterWall);
         borders[i].removeEventListener("dragover", dragOverWall);
     }
@@ -221,12 +221,12 @@ function dragEnterWall(e) {
             timer.classList.remove("lose");
 
             // returning event listeners after clicking the button and resetting the round
-            for(var i = 0; i < walls.length; i++) {
+            for(let i = 0; i < walls.length; i++) {
                 walls[i].addEventListener("dragenter", dragEnterWall);
                 walls[i].addEventListener("dragover", dragOverWall);
             }
             
-            for(var i = 0; i < borders.length; i++) {
+            for(let i = 0; i < borders.length; i++) {
                 borders[i].addEventListener("dragenter", dragEnterWall);
                 borders[i].addEventListener("dragover", dragOverWall);
             }
@@ -241,36 +241,36 @@ function dragOverWall(e) {
 }
 
 // walls of the maze
-var walls = document.querySelectorAll(".row");
+const walls = document.querySelectorAll(".row");
 // borders of the maze
-var borders = document.querySelectorAll(".border");
+const borders = document.querySelectorAll(".border");
 
 // adding functions to the walls of the maze
-for(var i = 0; i < walls.length; i++) {
+for(let i = 0; i < walls.length; i++) {
     walls[i].addEventListener("dragenter", dragEnterWall);
     walls[i].addEventListener("dragover", dragOverWall);
 }
 
 // adding functions to the borders of the maze
-for(var i = 0; i < borders.length; i++) {
+for(let i = 0; i < borders.length; i++) {
     borders[i].addEventListener("dragenter", dragEnterWall);
     borders[i].addEventListener("dragover", dragOverWall);
 }
 
 // menu on the left
 // setting event listeners for difficulties
-var easy = document.querySelector(".easy");
-var medium = document.querySelector(".medium");
-var hard = document.querySelector(".hard");
+const easy = document.querySelector(".easy");
+const medium = document.querySelector(".medium");
+const hard = document.querySelector(".hard");
 
 // variable for moving walls
 // in hard mode they are activated, in easy and medium mode deactivated
-var rowFourThree = document.querySelector(".row-four-3");
-var rowFiveOne = document.querySelector(".row-five-1");
-var rowTwoThree = document.querySelector(".row-two-3");
-var rowFourOne = document.querySelector(".row-four-1");
-var rowSevenNine = document.querySelector(".row-seven-9");
-var rowTenThree = document.querySelector(".row-ten-3");
+const rowFourThree = document.querySelector(".row-four-3");
+const rowFiveOne = document.querySelector(".row-five-1");
+const rowTwoThree = document.querySelector(".row-two-3");
+const rowFourOne = document.querySelector(".row-four-1");
+const rowSevenNine = document.querySelector(".row-seven-9");
+const rowTenThree = document.querySelector(".row-ten-3");
 
 // if "easy" mode is selected
 easy.addEventListener("click", function() {
@@ -337,9 +337,9 @@ hard.addEventListener("click", function() {
 });
 
 // adding selection of different backgrounds - menu on the left
-var backgroundBlue = document.querySelector(".bg-blue");
-var backgroundRed = document.querySelector(".bg-red");
-var backgroundPurple = document.querySelector(".bg-purple");
+const backgroundBlue = document.querySelector(".bg-blue");
+const backgroundRed = document.querySelector(".bg-red");
+const backgroundPurple = document.querySelector(".bg-purple");
 
 // primary color - blue
 backgroundBlue.addEventListener("click", function() {
